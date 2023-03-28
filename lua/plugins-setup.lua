@@ -60,9 +60,16 @@ return packer.startup(function(use)
 	-- statusline
 	use("nvim-lualine/lualine.nvim")
 
+  -- lazy git
+  use("kdheepak/lazygit.nvim")
+
 	-- fuzzy finding w/ telescope
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance
-	use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" }) -- fuzzy finder
+	use({
+		"nvim-telescope/telescope.nvim",
+		branch = "0.1.x",
+		requires = { { "nvim-lua/plenary.nvim" }, { "kdheepak/lazygit.nvim" } },
+	}) -- fuzzy finder and lazy git via telescope
 
 	-- autocompletion
 	use("hrsh7th/nvim-cmp") -- completion plugin
@@ -88,7 +95,9 @@ return packer.startup(function(use)
 			{ "nvim-tree/nvim-web-devicons" },
 			{ "nvim-treesitter/nvim-treesitter" },
 		},
-	}) -- enhanced lsp uis
+	})
+
+	-- enhanced lsp uis
 	use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
 	use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
 
@@ -121,17 +130,19 @@ return packer.startup(function(use)
 	-- ChapGPT
 	use({
 		"jackMort/ChatGPT.nvim",
-		config = function()
-			require("chatgpt").setup({
-				-- optional configuration
-			})
-		end,
 		requires = {
 			"MunifTanjim/nui.nvim",
 			"nvim-lua/plenary.nvim",
 			"nvim-telescope/telescope.nvim",
 		},
 	})
+
+	-- Displays possible keybindings
+	use({ "folke/which-key.nvim" })
+
+	-- Better terminal experience
+	use({ "akinsho/toggleterm.nvim", tag = "*" })
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end

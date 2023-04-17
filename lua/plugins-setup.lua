@@ -60,8 +60,8 @@ return packer.startup(function(use)
 	-- statusline
 	use("nvim-lualine/lualine.nvim")
 
-  -- lazy git
-  use("kdheepak/lazygit.nvim")
+	-- lazy git
+	use("kdheepak/lazygit.nvim")
 
 	-- fuzzy finding w/ telescope
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance
@@ -128,20 +128,29 @@ return packer.startup(function(use)
 	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" })
 
 	-- ChapGPT
-	use({
-		"jackMort/ChatGPT.nvim",
-		requires = {
-			"MunifTanjim/nui.nvim",
-			"nvim-lua/plenary.nvim",
-			"nvim-telescope/telescope.nvim",
-		},
-	})
+	use("james1236/backseat.nvim")
 
 	-- Displays possible keybindings
 	use({ "folke/which-key.nvim" })
 
 	-- Better terminal experience
 	use({ "akinsho/toggleterm.nvim", tag = "*" })
+
+	-- Code folding
+	use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
+
+	use({
+		"folke/todo-comments.nvim",
+		requires = "nvim-lua/plenary.nvim",
+	})
+
+	-- better error line displays
+	use({
+		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+		config = function()
+			require("lsp_lines").setup()
+		end,
+	})
 
 	if packer_bootstrap then
 		require("packer").sync()

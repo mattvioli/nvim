@@ -13,7 +13,7 @@ vim.cmd([[ highlight NvimTreeIndentMarker guifg=#3FC5FF ]])
 
 -- configure nvim-tree
 nvimtree.setup({
-	view = { side = "right" },
+	view = { side = "right", width = 60 },
 	-- change folder arrow icons
 	renderer = {
 		icons = {

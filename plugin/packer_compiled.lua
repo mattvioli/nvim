@@ -119,11 +119,6 @@ _G.packer_plugins = {
     path = "/Users/mvioli/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
-  ["fsread.nvim"] = {
-    loaded = true,
-    path = "/Users/mvioli/.local/share/nvim/site/pack/packer/start/fsread.nvim",
-    url = "https://github.com/nullchilly/fsread.nvim"
-  },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "/Users/mvioli/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",

@@ -1,5 +1,5 @@
 local opt = vim.opt
-
+local diag = vim.diagnostic
 -- line numbers
 opt.relativenumber = true
 opt.number = true
@@ -11,7 +11,7 @@ opt.expandtab = true
 opt.autoindent = true
 
 -- line wrapping
-opt.wrap = false
+opt.wrap = true
 
 -- search settings
 opt.ignorecase = true
@@ -23,7 +23,7 @@ opt.cursorline = true
 -- appearance
 opt.termguicolors = true
 opt.background = "dark"
-opt.signcolumn = "yes"
+opt.signcolumn = "number"
 
 -- backspace
 opt.backspace = "indent,eol,start"
@@ -36,3 +36,7 @@ opt.splitright = true
 opt.splitbelow = true
 
 opt.iskeyword:append("-")
+
+diag.config({
+	virtual_text = false,
+})

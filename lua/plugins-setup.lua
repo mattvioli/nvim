@@ -68,8 +68,8 @@ return packer.startup(function(use)
 	use({
 		"nvim-telescope/telescope.nvim",
 		branch = "0.1.x",
-		requires = { { "nvim-lua/plenary.nvim" }, { "kdheepak/lazygit.nvim" } },
-	}) -- fuzzy finder and lazy git via telescope
+		requires = { { "nvim-lua/plenary.nvim" } },
+	}) -- fuzzy finder via telescope
 
 	-- autocompletion
 	use("hrsh7th/nvim-cmp") -- completion plugin
@@ -120,9 +120,6 @@ return packer.startup(function(use)
 
 	-- git integration
 	use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
-
-	-- Bionic reading
-	use("nullchilly/fsread.nvim")
 
 	-- bufferline for tabs
 	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" })

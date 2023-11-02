@@ -57,3 +57,29 @@ keymap.set("n", "<A-j>", ":m .+1<CR>==") -- move line up(n)
 keymap.set("n", "<A-k>", ":m .-2<CR>==") -- move line down(n)
 keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv") -- move line up(v)
 keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv") -- move line down(v)
+
+-- buffers
+keymap.set("n", "<Leader>b]", ":BufferLineCycleNext<CR>") -- cycle to next buffer
+keymap.set("n", "<Leader>b[", ":BufferLineCyclePrev<CR>") -- cycle to previous buffer
+keymap.set("n", "<Leader>bx", ":bd") -- close buffer
+
+
+-- react-extract
+keymap.set("v", "<Leader>rn", require("react-extract").extract_to_new_file)
+keymap.set("v", "<Leader>rc", require("react-extract").extract_to_current_file)
+
+-- test runner
+keymap.set("n", "<Leader>tr", ":lua require('neotest').run.run()<cr>")
+keymap.set("n", "<Leader>tf", ":lua require('neotest').run.run(vim.fn.expand('%'))<cr>")
+keymap.set("n", "<Leader>tw", ":lua require('neotest').watch.watch()<cr>")
+keymap.set("n", "<Leader>tl", ":lua require('neotest').run.run_last()<cr>")
+keymap.set("n", "<Leader>tp", ":lua require('neotest').output_panel.toggle()<cr>")
+
+-- refactoring
+vim.keymap.set("x", "<leader>re", ":Refactor extract ")
+vim.keymap.set("x", "<leader>rf", ":Refactor extract_to_file ")
+vim.keymap.set("x", "<leader>rv", ":Refactor extract_var ")
+vim.keymap.set({ "n", "x" }, "<leader>ri", ":Refactor inline_var")
+vim.keymap.set( "n", "<leader>rI", ":Refactor inline_func")
+vim.keymap.set("n", "<leader>rb", ":Refactor extract_block")
+vim.keymap.set("n", "<leader>rbf", ":Refactor extract_block_to_file")

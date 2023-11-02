@@ -20,6 +20,8 @@ vim.cmd([[
   augroup end
 ]])
 
+vim.cmd([[autocmd BufEnter,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()]])
+
 local function open_nvim_tree()
 	-- open the tree
 	require("nvim-tree.api").tree.open()
@@ -138,6 +140,10 @@ return packer.startup(function(use)
 		requires = "nvim-lua/plenary.nvim",
 	})
 
+	use({
+"folke/neodev.nvim"
+	})
+
 	-- better error line displays
 	use({
 		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
@@ -166,6 +172,32 @@ return packer.startup(function(use)
 		end,
 	})
 
+  -- code refactoring
+  use {
+      "ThePrimeagen/refactoring.nvim",
+     requires = {
+          {"nvim-lua/plenary.nvim"},
+          {"nvim-treesitter/nvim-treesitter"}
+      }
+  }
+
+  -- React extracting
+	use({ "napmn/react-extract.nvim" })
+
+  -- lsp-lens
+ use({'VidocqH/lsp-lens.nvim'})
+
+  -- test runner
+use {
+  "nvim-neotest/neotest",
+  requires = {
+    "nvim-lua/plenary.nvim",
+    "nvim-treesitter/nvim-treesitter",
+    "antoinemadec/FixCursorHold.nvim",
+    'haydenmeade/neotest-jest',
+    'adrigzr/neotest-mocha',
+  }
+}
 	if packer_bootstrap then
 		require("packer").sync()
 	end

@@ -22,7 +22,6 @@ null_ls.setup({
 		formatting.prettier, -- js/ts formatter
 		formatting.stylua, -- lua formatter
 		diagnostics.eslint_d,
-		diagnostics.cspell,
 		completion.spell,
 		code_actions.refactoring,
 		code_actions.xo,

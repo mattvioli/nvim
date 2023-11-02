@@ -1,3 +1,8 @@
+local neodev_status, neodev = pcall(require, "neodev")
+if not neodev then
+  return
+end
+
 -- import lspconfig plugin safely
 local lspconfig_status, lspconfig = pcall(require, "lspconfig")
 if not lspconfig_status then
@@ -55,6 +60,11 @@ for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
+
+-- neodev type checking for neotest
+neodev.setup({
+  library = { plugins = { "neotest" }, types = true },
+})
 
 -- configure html server
 lspconfig["html"].setup({

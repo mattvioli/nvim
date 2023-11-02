@@ -19,10 +19,11 @@ nvimtree.setup({
 		icons = {
 			glyphs = {
 				folder = {
-					arrow_closed = "", -- arrow when folder is closed
-					arrow_open = "", -- arrow when folder is open
-				},
-			},
+            arrow_closed = ">", -- arrow when folder is closed
+            arrow_open = "v", -- arrow when folder is open
+
+          },
+        },
 		},
 	},
 	-- disable window_picker for

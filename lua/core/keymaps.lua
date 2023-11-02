@@ -61,7 +61,7 @@ keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv") -- move line down(v)
 -- buffers
 keymap.set("n", "<Leader>b]", ":BufferLineCycleNext<CR>") -- cycle to next buffer
 keymap.set("n", "<Leader>b[", ":BufferLineCyclePrev<CR>") -- cycle to previous buffer
-keymap.set("n", "<Leader>bx", ":bd") -- close buffer
+keymap.set("n", "<Leader>bx", ":bd<CR>") -- close buffer
 
 
 -- react-extract

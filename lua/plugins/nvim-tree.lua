@@ -1,9 +1,7 @@
--- import nvim-tree plugin safely
-local setup, nvimtree = pcall(require, "nvim-tree")
-if not setup then
-	return
-end
-
+return {
+		"nvim-tree/nvim-tree.lua",
+  config = function()
+    
 -- recommended settings from nvim-tree documentation
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -12,7 +10,7 @@ vim.g.loaded_netrwPlugin = 1
 vim.cmd([[ highlight NvimTreeIndentMarker guifg=#3FC5FF ]])
 
 -- configure nvim-tree
-nvimtree.setup({
+require("nvim-tree").setup({
 	view = { side = "right", width = 60 },
 	-- change folder arrow icons
 	renderer = {
@@ -63,4 +61,7 @@ local function open_nvim_tree(data)
 	require("nvim-tree.api").tree.open()
 end
 
-vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
+vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })  end
+}
+  
+

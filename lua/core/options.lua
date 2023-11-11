@@ -39,4 +39,10 @@ opt.iskeyword:append("-")
 
 diag.config({
 	virtual_text = false,
-})
+}
+)
+
+opt.timeout = true
+opt.timeoutlen = 300
+
+opt.statuscolumn = "%s %l %r "

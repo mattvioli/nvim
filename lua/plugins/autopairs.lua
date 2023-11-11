@@ -1,4 +1,6 @@
--- import nvim-autopairs safely
+return {
+	"nvim-lualine/lualine.nvim",
+  config = function()
 local autopairs_setup, autopairs = pcall(require, "nvim-autopairs")
 if not autopairs_setup then
   return
@@ -27,4 +29,7 @@ if not cmp_setup then
 end
 
 -- make autopairs and completion work together
-cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())  
+end
+}
+

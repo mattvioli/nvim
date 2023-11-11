@@ -1,10 +1,7 @@
--- import lualine plugin safely
-local status, lualine = pcall(require, "lualine")
-if not status then
-  return
-end
-
--- get lualine nightfly theme
+return {
+	"nvim-lualine/lualine.nvim",
+  config = function()
+    -- get lualine nightfly theme
 local lualine_nightfly = require("lualine.themes.nightfly")
 
 -- new colors for theme
@@ -29,8 +26,11 @@ lualine_nightfly.command = {
 }
 
 -- configure lualine with modified theme
-lualine.setup({
+require('lualine').setup {
   options = {
     theme = lualine_nightfly,
   },
-})
+}
+  end
+}
+

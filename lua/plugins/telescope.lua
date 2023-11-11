@@ -1,4 +1,8 @@
--- import telescope plugin safely
+return {
+		"nvim-telescope/telescope.nvim",
+		branch = "0.1.x",
+		dependencies = { { "nvim-lua/plenary.nvim" } },
+config = function ()
 local telescope_setup, telescope = pcall(require, "telescope")
 if not telescope_setup then
 	return
@@ -66,3 +70,5 @@ telescope.setup({
 	},
 })
 telescope.load_extension("fzf")
+  end
+}

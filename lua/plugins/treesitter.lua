@@ -1,11 +1,14 @@
--- import nvim-treesitter plugin safely
-local status, treesitter = pcall(require, "nvim-treesitter.configs")
-if not status then
-	return
-end
-
--- configure treesitter
-treesitter.setup({
+	return {
+		"nvim-treesitter/nvim-treesitter",
+		build = function()
+			local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
+			ts_update()
+		end,
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter-textobjects",
+      "windwp/nvim-ts-autotag" -- autoclose tags
+    },
+    opts = {
 	-- enable syntax highlighting
 	highlight = {
 		enable = true,
@@ -35,4 +38,6 @@ treesitter.setup({
 	},
 	-- auto install above language parsers
 	auto_install = true,
-})
+}
+}
+

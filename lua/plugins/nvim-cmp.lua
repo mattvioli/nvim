@@ -1,4 +1,7 @@
--- import nvim-cmp plugin safely
+return {
+
+	"hrsh7th/nvim-cmp", 
+config = function() -- import nvim-cmp plugin safely
 local cmp_status, cmp = pcall(require, "cmp")
 if not cmp_status then
   return
@@ -51,3 +54,5 @@ cmp.setup({
     }),
   },
 })
+end
+}

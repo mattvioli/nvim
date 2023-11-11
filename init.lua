@@ -1,23 +1,27 @@
-require("plugins-setup")
+-- install lazy if not installed
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+-- lazy dependencies leader mapping to happend before plugins
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+vim.cmd([[autocmd BufEnter,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()]])
+
+-- local function open_nvim_tree()
+-- 	-- open the tree
+-- 	require("nvim-tree.api").tree.open()
+-- end
+require("lazy").setup('plugins')
 require("core.options")
 require("core.keymaps")
 require("core.colorscheme")
-require("plugins.comment")
-require("plugins.nvim-tree")
-require("plugins.lualine")
-require("plugins.telescope")
-require("plugins.nvim-cmp")
-require("plugins.lsp.mason")
-require("plugins.lsp.lspsaga")
-require("plugins.lsp.lspconfig")
-require("plugins.lsp.null-ls")
-require("plugins.autopairs")
-require("plugins.treesitter")
-require("plugins.gitsigns")
-require("plugins.bufferline")
-require("plugins.chatgpt")
-require("plugins.whichkey")
-require("plugins.toggleterm")
-require("plugins.react-extract")
-require("plugins.lsp-lens")
-require("plugins.neotest")

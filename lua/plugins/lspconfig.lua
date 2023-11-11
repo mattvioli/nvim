@@ -1,3 +1,5 @@
+return	{"neovim/nvim-lspconfig",
+config = function()
 local neodev_status, neodev = pcall(require, "neodev")
 if not neodev then
   return
@@ -119,3 +121,5 @@ lspconfig["lua_ls"].setup({
     },
   },
 })
+  end
+}

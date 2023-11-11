@@ -1,4 +1,7 @@
+return {
+"williamboman/mason.nvim",
 -- import mason plugin safely
+config = function()
 local mason_status, mason = pcall(require, "mason")
 if not mason_status then
   return
@@ -43,3 +46,5 @@ mason_null_ls.setup({
   -- auto-install configured formatters & linters (with null-ls)
   automatic_installation = true,
 })
+end
+}

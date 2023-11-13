@@ -42,7 +42,4 @@ diag.config({
 }
 )
 
-opt.timeout = true
-opt.timeoutlen = 300
-
 opt.statuscolumn = "%s %l %r "

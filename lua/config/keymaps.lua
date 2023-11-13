@@ -1,5 +1,3 @@
-vim.g.mapleader = " "
-
 local keymap = vim.keymap
 
 -- clear search highlights
@@ -68,18 +66,12 @@ keymap.set("n", "<Leader>bx", ":bd<CR>") -- close buffer
 keymap.set("v", "<Leader>rn", require("react-extract").extract_to_new_file)
 keymap.set("v", "<Leader>rc", require("react-extract").extract_to_current_file)
 
--- test runner
-keymap.set("n", "<Leader>tr", ":lua require('neotest').run.run()<cr>")
-keymap.set("n", "<Leader>tf", ":lua require('neotest').run.run(vim.fn.expand('%'))<cr>")
-keymap.set("n", "<Leader>tw", ":lua require('neotest').watch.watch()<cr>")
-keymap.set("n", "<Leader>tl", ":lua require('neotest').run.run_last()<cr>")
-keymap.set("n", "<Leader>tp", ":lua require('neotest').output_panel.toggle()<cr>")
 
 -- refactoring
-vim.keymap.set("x", "<leader>re", ":Refactor extract ")
-vim.keymap.set("x", "<leader>rf", ":Refactor extract_to_file ")
-vim.keymap.set("x", "<leader>rv", ":Refactor extract_var ")
-vim.keymap.set({ "n", "x" }, "<leader>ri", ":Refactor inline_var")
-vim.keymap.set( "n", "<leader>rI", ":Refactor inline_func")
-vim.keymap.set("n", "<leader>rb", ":Refactor extract_block")
-vim.keymap.set("n", "<leader>rbf", ":Refactor extract_block_to_file")
+keymap.set("x", "<leader>re", ":Refactor extract ")
+keymap.set("x", "<leader>rf", ":Refactor extract_to_file ")
+keymap.set("x", "<leader>rv", ":Refactor extract_var ")
+keymap.set({ "n", "x" }, "<leader>ri", ":Refactor inline_var")
+keymap.set( "n", "<leader>rI", ":Refactor inline_func")
+keymap.set("n", "<leader>rb", ":Refactor extract_block")
+keymap.set("n", "<leader>rbf", ":Refactor extract_block_to_file")

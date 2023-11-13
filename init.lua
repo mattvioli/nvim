@@ -15,13 +15,9 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-vim.cmd([[autocmd BufEnter,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()]])
+ vim.cmd([[autocmd BufEnter,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()]])
 
--- local function open_nvim_tree()
--- 	-- open the tree
--- 	require("nvim-tree.api").tree.open()
--- end
+require("config.options")
 require("lazy").setup('plugins')
-require("core.options")
-require("core.keymaps")
-require("core.colorscheme")
+require("config.keymaps")
+require("config.colorscheme")

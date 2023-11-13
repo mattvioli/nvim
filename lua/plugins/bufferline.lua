@@ -5,6 +5,6 @@ return { "akinsho/bufferline.nvim", dependencies = "nvim-tree/nvim-web-devicons"
 		separator_style = "slant" or "padded_slant",
 		show_tab_indicators = true,
 	},
-} 
+}
 }
 

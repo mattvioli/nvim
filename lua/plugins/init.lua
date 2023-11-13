@@ -1,4 +1,20 @@
-return {	{"nvim-lua/plenary.nvim"}, -- lua functions that many plugins use
+return {
+
+  { "folke/which-key.nvim", lazy = false,
+     keys = { "<leader>", "<c-r>", '"', "'", "`", "c", "v", "g" },
+
+  init = function()
+    vim.o.timeout = true
+    vim.o.timeoutlen = 300
+  end,
+  opts = {
+    -- your configuration comes here
+    -- or leave it empty to use the default settings
+    -- refer to the configuration section below
+  }},
+
+  {"nvim-lua/plenary.nvim"}, -- lua functions that many plugins use
+
 
 	{"bluz71/vim-nightfly-guicolors"}, -- preferred colorscheme
 
@@ -30,11 +46,6 @@ return {	{"nvim-lua/plenary.nvim"}, -- lua functions that many plugins use
 
 	-- fuzzy finding w/ telescope
 	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" }, -- dependency for better sorting performance
-	{
-		"nvim-telescope/telescope.nvim",
-		branch = "0.1.x",
-		dependencies = { { "nvim-lua/plenary.nvim" } },
-	}, -- fuzzy finder via telescope
 
 	-- autocompletion
 	{"hrsh7th/cmp-buffer"}, -- source for text in buffer
@@ -83,8 +94,6 @@ return {	{"nvim-lua/plenary.nvim"}, -- lua functions that many plugins use
 	{"lewis6991/gitsigns.nvim"}, -- show line modifications on left hand side
 
 
-	-- Displays possible keybindings
-	{ "folke/which-key.nvim" },
 
 	-- Better terminal experience
 	{ "akinsho/toggleterm.nvim"},

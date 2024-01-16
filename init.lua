@@ -17,7 +17,7 @@ vim.g.maplocalleader = " "
 
  vim.cmd([[autocmd BufEnter,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()]])
 
-require("config.options")
 require("lazy").setup('plugins')
+require("config.options")
 require("config.keymaps")
-require("config.colorscheme")
+

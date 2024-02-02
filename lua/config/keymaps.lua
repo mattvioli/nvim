@@ -53,9 +53,3 @@ keymap.set( "n", "<leader>rI", ":Refactor inline_func")
 keymap.set("n", "<leader>rb", ":Refactor extract_block")
 keymap.set("n", "<leader>rbf", ":Refactor extract_block_to_file")
 
--- quick open lazygit
-keymap.set("n", "<leader>lg", ":LazyGit<CR>")
-
--- open toggleterm 
-keymap.set("n", "<leader>tt", ":ToggleTerm<CR>")
-

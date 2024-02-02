@@ -26,12 +26,4 @@ return {
 
 	{ "folke/neodev.nvim", opts = {} },
 
-  -- code refactoring
- {
-      "ThePrimeagen/refactoring.nvim",
-     dependencies = {
-          {"nvim-lua/plenary.nvim"},
-          {"nvim-treesitter/nvim-treesitter"}
-      }
-  },
 }

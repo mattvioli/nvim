@@ -1,4 +1,4 @@
 return {
-  'VidocqH/lsp-lens.nvim',
-  event = { "BufReadPost", "BufWritePost", "BufNewFile" },
+	"VidocqH/lsp-lens.nvim",
+	config = true,
 }

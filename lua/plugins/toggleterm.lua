@@ -1,8 +1,8 @@
-return  {
-  'akinsho/toggleterm.nvim',
-  version = "*",
-  keys = {
-    { "<leader>tt", ":ToggleTerm<CR>", desc = "Toggle terminal" }
-  }
+return {
+	"akinsho/toggleterm.nvim",
+	version = "*",
+	config = true,
+	keys = {
+		{ "<leader>tt", ":ToggleTerm<CR>", desc = "Toggle terminal" },
+	},
 }
-

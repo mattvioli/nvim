@@ -21,11 +21,6 @@ keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close current tab
 keymap.set("n", "<leader>tn", ":tabn<CR>") --  go to next tab
 keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
 
-
--- nvim-tree
-keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
-
-
 -- telescope git commands
 keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<cr>") -- list all git commits (use <cr> to checkout) ["gc" for git commits]
 keymap.set("n", "<leader>gfc", "<cmd>Telescope git_bcommits<cr>") -- list git commits for current file/buffer (use <cr> to checkout) ["gfc" for git file commits]
@@ -49,7 +44,6 @@ keymap.set("x", "<leader>re", ":Refactor extract ")
 keymap.set("x", "<leader>rf", ":Refactor extract_to_file ")
 keymap.set("x", "<leader>rv", ":Refactor extract_var ")
 keymap.set({ "n", "x" }, "<leader>ri", ":Refactor inline_var")
-keymap.set( "n", "<leader>rI", ":Refactor inline_func")
+keymap.set("n", "<leader>rI", ":Refactor inline_func")
 keymap.set("n", "<leader>rb", ":Refactor extract_block")
 keymap.set("n", "<leader>rbf", ":Refactor extract_block_to_file")
-

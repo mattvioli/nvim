@@ -27,8 +27,6 @@ keymap.set("n", "<leader>gfc", "<cmd>Telescope git_bcommits<cr>") -- list git co
 keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<cr>") -- list git branches (use <cr> to checkout) ["gb" for git branch]
 keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current changes per file with diff preview ["gs" for git status]
 
--- toggle lsp lines helper
-keymap.set("n", "<Leader>ll", require("lsp_lines").toggle, { desc = "Toggle lsp_lines" })
 -- move line mapping
 keymap.set("n", "<A-j>", ":m .+1<CR>==") -- move line up(n)
 keymap.set("n", "<A-k>", ":m .-2<CR>==") -- move line down(n)
@@ -38,12 +36,3 @@ keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv") -- move line down(v)
 -- buffers
 keymap.set("n", "<Leader>b]", ":BufferLineCycleNext<CR>") -- cycle to next buffer
 keymap.set("n", "<Leader>b[", ":BufferLineCyclePrev<CR>") -- cycle to previous buffer
-
--- refactoring
-keymap.set("x", "<leader>re", ":Refactor extract ")
-keymap.set("x", "<leader>rf", ":Refactor extract_to_file ")
-keymap.set("x", "<leader>rv", ":Refactor extract_var ")
-keymap.set({ "n", "x" }, "<leader>ri", ":Refactor inline_var")
-keymap.set("n", "<leader>rI", ":Refactor inline_func")
-keymap.set("n", "<leader>rb", ":Refactor extract_block")
-keymap.set("n", "<leader>rbf", ":Refactor extract_block_to_file")

@@ -15,9 +15,9 @@ return {
 		local keymap = vim.keymap -- for conciseness
 
 		lspconfig.eslint.setup({
-			-- settings = { experimental = {
-			-- 	useFlatConfig = false,
-			-- } },
+			settings = { experimental = {
+				useFlatConfig = false,
+			} },
 			on_attach = function(client, bufnr)
 				vim.api.nvim_create_autocmd("BufWritePost", {
 					buffer = bufnr,

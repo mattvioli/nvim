@@ -66,5 +66,4 @@ return {
 		{ "<leader>bl", "<Cmd>BufferOrderByLanguage<CR>", desc = "Order buffer by language" },
 		{ "<leader>bw", "<Cmd>BufferOrderByWindowNumber<CR>", desc = "Order buffer by window number" },
 	},
-	version = "^1.0.0", -- optional: only update when a new 1.x version is released
 }

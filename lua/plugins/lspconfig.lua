@@ -94,6 +94,13 @@ return {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			detached = false,
+			opts = {
+				root_dir = function(fname)
+					local util = require("lspconfig.util")
+					return util.root_pattern(".git")(fname)
+						or util.root_pattern("package.json", "tsconfig.json", "jsconfig.json")(fname)
+				end,
+			},
 		})
 
 		-- configure css server
@@ -103,10 +110,10 @@ return {
 		})
 
 		-- configure tailwindcss server
-		-- lspconfig["tailwindcss"].setup({
-		--   capabilities = capabilities,
-		--   on_attach = on_attach,
-		-- })
+		lspconfig["tailwindcss"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
 
 		-- configure svelte server
 		lspconfig["svelte"].setup({

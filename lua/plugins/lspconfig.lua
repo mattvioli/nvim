@@ -14,6 +14,12 @@ return {
 					return util.root_pattern(".git")(fname)
 						or util.root_pattern("package.json", "tsconfig.json", "jsconfig.json")(fname)
 				end,
+				init_options = {
+					preferences = {
+						importModuleSpecifierPreference = "relative",
+						importModuleSpecifierEnding = "minimal",
+					},
+				},
 			},
 			html = {},
 			emmet_ls = {

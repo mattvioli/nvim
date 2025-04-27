@@ -10,20 +10,18 @@ return {
 		local lspconfig = require("lspconfig")
 		-- import cmp-nvim-lsp plugin
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
-		local keymap = vim.keymap -- for conciseness
 		-- NOTE: This is incase linting doesn't work with nvim-lint
-		-- lspconfig.eslint.setup({
-		-- 	settings = { experimental = {
-		-- 		useFlatConfig = false,
-		-- 	} },
-		-- 	on_attach = function(client, bufnr)
-		-- 		vim.api.nvim_create_autocmd("BufWritePost", {
-		-- 			buffer = bufnr,
-		-- 			command = "EslintFixAll",
-		-- 		})
-		-- 	end,
-		-- })
-		local opts = { noremap = true, silent = true }
+		lspconfig.eslint.setup({
+			settings = { experimental = {
+				useFlatConfig = false,
+			} },
+			on_attach = function(client, bufnr)
+				vim.api.nvim_create_autocmd("BufWritePost", {
+					buffer = bufnr,
+					command = "EslintFixAll",
+				})
+			end,
+		})
 		-- used to enable autocompletion (assign to every lsp server config)
 		local capabilities = cmp_nvim_lsp.default_capabilities()
 		-- Change the Diagnostic symbols in the sign column (gutter)

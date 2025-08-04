@@ -1,5 +1,7 @@
 local opt = vim.opt
 local diag = vim.diagnostic
+
+vim.g.copilot_enabled = 0
 -- line numbers
 opt.relativenumber = true
 opt.number = true
@@ -38,8 +40,12 @@ opt.splitbelow = true
 opt.iskeyword:append("-")
 
 diag.config({
-	virtual_text = false,
-}
-)
+  virtual_text = false,
+  virtual_lines = {
+    current_line = true,
+  },
+})
 
 opt.statuscolumn = "%s %l %r "
+
+opt.winborder = "rounded"

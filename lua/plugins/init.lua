@@ -10,5 +10,5 @@ return {
 	{ "onsails/lspkind.nvim" }, -- vs-code like icons for autocompletion
 
 	-- Better terminal experience
-	{ "folke/neodev.nvim", opts = {} },
+	-- { "folke/neodev.nvim", opts = {} },
 }

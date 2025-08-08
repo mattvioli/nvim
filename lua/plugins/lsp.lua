@@ -89,6 +89,12 @@ return {
       },
     }
 
+    vim.lsp.config['hls'] = {
+      capabilities = capabilities,
+      cmd = { 'haskell-language-server-wrapper', '--lsp' },
+      filetypes = { 'haskell', 'lhaskell' },
+   }
+
     vim.lsp.config['emmet_ls'] = {
       capabilities = capabilities,
       cmd = { 'emmet-ls', '--stdio' },

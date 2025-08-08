@@ -23,7 +23,7 @@ return {
       -- Sets the "workspace" to the directory where any of these files is found.
       -- Files that share a root directory will reuse the LSP server connection.
       -- Nested lists indicate equal priority, see |vim.lsp.Config|.
-      root_markers = { { '.git', 'package.json', 'tsconfig.json', 'jsconfig.json' } },
+      root_markers = { { 'package.json', 'tsconfig.json', 'jsconfig.json' } },
       init_options = {
         provideFormatter = true, -- Enable formatting support
         codeAction = {

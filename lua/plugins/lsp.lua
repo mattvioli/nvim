@@ -23,7 +23,7 @@ return {
       -- Sets the "workspace" to the directory where any of these files is found.
       -- Files that share a root directory will reuse the LSP server connection.
       -- Nested lists indicate equal priority, see |vim.lsp.Config|.
-      root_markers = { { '.git', 'package.json', 'tsconfig.json', 'jsconfig.json' } },
+      root_markers = { { 'package.json', 'tsconfig.json', 'jsconfig.json' } },
       init_options = {
         provideFormatter = true, -- Enable formatting support
         codeAction = {
@@ -145,6 +145,34 @@ return {
       },
     }
 
+    vim.lsp.config['hls'] = {
+      capabilities = capabilities,
+      cmd = { 'haskell-language-server-wrapper', '--lsp' },
+      filetypes = { 'haskell', 'lhaskell' },
+    }
+
+    vim.lsp.config['emmet_ls'] = {
+      capabilities = capabilities,
+      cmd = { 'emmet-ls', '--stdio' },
+      filetypes = {
+        'astro',
+        'css',
+        'eruby',
+        'html',
+        'htmlangular',
+        'htmldjango',
+        'javascriptreact',
+        'less',
+        'pug',
+        'sass',
+        'scss',
+        'svelte',
+        'templ',
+        'typescriptreact',
+        'vue',
+      },
+      root_markers = { '.git' },
+    }
 
     vim.lsp.config['luals'] = {
       capabilities = capabilities,

@@ -55,7 +55,7 @@ return {
       -- Sets the "workspace" to the directory where any of these files is found.
       -- Files that share a root directory will reuse the LSP server connection.
       -- Nested lists indicate equal priority, see |vim.lsp.Config|.
-      root_markers = { { '.git', 'package.json', 'tsconfig.json', 'jsconfig.json' } },
+      root_markers = { '.git', 'package.json', 'tsconfig.json', 'jsconfig.json' },
       init_options = {
         provideFormatter = true, -- Enable formatting support
       },
@@ -210,13 +210,36 @@ return {
       }
     }
 
+    vim.lsp.config['markdown_oxide'] = {
+      root_markers = { '.git', '.obsidian', '.moxide.toml' },
+      filetypes = { 'markdown' },
+      cmd = { 'markdown-oxide' },
+      on_attach = function(_, bufnr)
+        vim.api.nvim_buf_create_user_command(bufnr, 'LspToday', function()
+          vim.lsp.buf.execute_command { command = 'jump', arguments = { 'today' } }
+        end, {
+          desc = "Open today's daily note",
+        })
+        vim.api.nvim_buf_create_user_command(bufnr, 'LspTomorrow', function()
+          vim.lsp.buf.execute_command { command = 'jump', arguments = { 'tomorrow' } }
+        end, {
+          desc = "Open tomorrow's daily note",
+        })
+        vim.api.nvim_buf_create_user_command(bufnr, 'LspYesterday', function()
+          vim.lsp.buf.execute_command { command = 'jump', arguments = { 'yesterday' } }
+        end, {
+          desc = "Open yesterday's daily note",
+        })
+      end,
+    }
+
     vim.api.nvim_create_autocmd('LspAttach', {
       group = vim.api.nvim_create_augroup('my.lsp', {}),
       callback = function(args)
         local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
-        -- if not client then
-        --   return
-        -- end
+        if not client then
+          return
+        end
         -- Enable auto-completion. Note: Use CTRL-Y to select an item. |complete_CTRL-Y|
 
         -- if client:supports_method('textDocument/completion') then

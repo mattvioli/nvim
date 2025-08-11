@@ -25,7 +25,7 @@ opt.cursorline = true
 -- appearance
 opt.termguicolors = true
 opt.background = "dark"
-opt.signcolumn = "number"
+-- opt.signcolumn = "number"
 
 -- backspace
 opt.backspace = "indent,eol,start"
@@ -41,11 +41,8 @@ opt.iskeyword:append("-")
 
 diag.config({
   virtual_text = false,
-  virtual_lines = {
-    current_line = true,
-  },
 })
 
-opt.statuscolumn = "%s %l %r "
+-- opt.statuscolumn = "%s %l"
 
 opt.winborder = "rounded"

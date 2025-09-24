@@ -6,5 +6,6 @@ vim.lsp.enable({ 'lua_ls',
   "emmet_ls",
   "pyright",
   "markdown_oxide",
-  "hls"
+  "hls",
+  "rust_analyzer"
 })

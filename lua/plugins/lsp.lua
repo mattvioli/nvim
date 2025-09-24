@@ -5,7 +5,6 @@ return {
     -- used to enable autocompletion (assign to every lsp server config)
 
     local capabilities = vim.lsp.protocol.make_client_capabilities()
-    local base_on_attach = vim.lsp.config.eslint.on_attach
     -- Change the Diagnostic symbols in the sign column (gutter)
     -- (not in youtube nvim video)
     local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
@@ -36,6 +35,7 @@ return {
         }
       },
       on_attach = function(client, bufnr)
+        local base_on_attach = vim.lsp.config.eslint.on_attach
         if not base_on_attach then return end
 
         base_on_attach(client, bufnr)
@@ -260,6 +260,18 @@ return {
         })
       end,
     }
+
+    vim.lsp.config('rust_analyzer', {
+      cmd = { "rust-analyzer" },
+      settings = {
+        ['rust-analyzer'] = {
+          formatOnSave = true,
+          diagnostics = {
+            enable = false,
+          }
+        }
+      }
+    })
 
     vim.api.nvim_create_autocmd('LspAttach', {
       group = vim.api.nvim_create_augroup('my.lsp', {}),

@@ -225,7 +225,7 @@ return {
       -- Command and arguments to start the server.
       cmd = { "vscode-html-language-server", "--stdio" },
       -- Filetypes to automatically attach to.
-      filetypes = { 'html', 'markdown' },
+      filetypes = { 'html' },
       -- Sets the "workspace" to the directory where any of these files is found.
       -- Files that share a root directory will reuse the LSP server connection.
       -- Nested lists indicate equal priority, see |vim.lsp.Config|.
@@ -410,29 +410,6 @@ return {
           }
         }
       }
-    }
-
-    vim.lsp.config['markdown_oxide'] = {
-      root_markers = { '.git', '.obsidian', '.moxide.toml' },
-      filetypes = { 'markdown' },
-      cmd = { 'markdown-oxide' },
-      on_attach = function(_, bufnr)
-        vim.api.nvim_buf_create_user_command(bufnr, 'LspToday', function()
-          vim.lsp.buf.execute_command { command = 'jump', arguments = { 'today' } }
-        end, {
-          desc = "Open today's daily note",
-        })
-        vim.api.nvim_buf_create_user_command(bufnr, 'LspTomorrow', function()
-          vim.lsp.buf.execute_command { command = 'jump', arguments = { 'tomorrow' } }
-        end, {
-          desc = "Open tomorrow's daily note",
-        })
-        vim.api.nvim_buf_create_user_command(bufnr, 'LspYesterday', function()
-          vim.lsp.buf.execute_command { command = 'jump', arguments = { 'yesterday' } }
-        end, {
-          desc = "Open yesterday's daily note",
-        })
-      end,
     }
 
     vim.lsp.config('rust_analyzer', {

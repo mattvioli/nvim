@@ -1,6 +1,6 @@
 -- install lazy if not installed
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
   vim.fn.system({
     "git",
     "clone",
@@ -17,7 +17,7 @@ vim.g.maplocalleader = " "
 
 vim.g.rustfmt_autosave = 1
 
-vim.cmd([[autocmd BufEnter,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()]])
+vim.lsp.codelens.enable(true)
 
 require("config.options")
 require("config.keymaps")

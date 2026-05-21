@@ -3,8 +3,7 @@ return {
   { "nvim-lua/plenary.nvim" }, -- lua functions that many plugins use
 
   -- enhanced lsp uis
-  { "jose-elias-alvarez/typescript.nvim" }, -- additional functionality for typescript server (e.g. rename file & update imports)
-  { "onsails/lspkind.nvim" },               -- vs-code like icons for autocompletion
+{ "onsails/lspkind.nvim" },               -- vs-code like icons for autocompletion
   {
     "folke/lazydev.nvim",
     ft = "lua", -- only load on lua files

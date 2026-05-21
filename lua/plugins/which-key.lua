@@ -17,7 +17,6 @@ return {
 			{ "<leader>n", group = "swap next" },
 			{ "<leader>p", group = "swap previous" },
 			{ "<leader>s", group = "split window" },
-			{ "<leader>f", group = "file/find" },
 			{ "<leader>r", group = "refactor" },
 			{ "<leader>g", group = "git" },
 			{ "<leader>x", group = "diagnostics/quickfix" },
